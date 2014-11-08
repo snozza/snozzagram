@@ -24,12 +24,19 @@ describe 'Posts' do
     end
 
     it 'should be able to post by filling in form' do
-      attach_file 'Photo', 'spec/fixtures/images/test.jpg'
+      attach_file 'Image', 'spec/fixtures/images/test.jpg'
       fill_in 'Caption', with: 'Greatest movie?'
       click_button 'Post!'
       expect(page).to have_content 'Greatest movie?'
-      expect(current_path).to eq '/posts'
+      expect(current_path).to eq '/'
       expect(Post.count).to eq 1
+    end
+
+    it 'should not be able to be submitted without attached photo' do
+      fill_in 'Caption', with: 'ummmm....'
+      click_button 'Post!'
+      expect(page).to have_content 'You need to upload a valid image!'
+      expect(Post.count).to eq 0
     end
   end
 
