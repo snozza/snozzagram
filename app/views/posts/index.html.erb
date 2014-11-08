@@ -1,2 +1,10 @@
-No photos to show!
-<a href='#'>Post Something</a>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <h2> <%= image_tag post.image.url(:thumb) %> </h2>
+    <p> <%= post.caption %> </p>
+  <% end %>
+<% else %>
+  No photos to show!
+<% end %>
+
+<p><a href='/posts/new'>Post Something</a><p>
