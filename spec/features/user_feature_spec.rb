@@ -46,5 +46,9 @@ describe 'User' do
       visit '/posts/new'
       expect(page).to have_content "You need to sign in or sign up before continuing"
     end
+
+    it "should not be able to delete a post" do
+      expect(page).to_not have_link "Delete"
+    end
   end
 end
