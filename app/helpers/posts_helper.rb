@@ -1,5 +1,9 @@
 module PostsHelper
 
+  def show_image_link(object)
+    link_to(image_tag(object.image.url(:thumb)), object) if can?(:read, object)
+  end
+
   def create_link(object, content="New")
     if can?(:create, object)
       object_class = (object.kind_of(Class) ? object : object.class)

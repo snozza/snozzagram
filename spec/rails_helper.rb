@@ -54,6 +54,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.include PostHelper
   config.include UserHelper
+  config.include Rails.application.routes.url_helpers
 
 
   config.infer_spec_type_from_file_location!

@@ -1,6 +1,7 @@
+
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <h2> <%= image_tag post.image.url(:thumb) %> </h2>
+    <h2> <%= show_image_link post %> </h2>
     <p> <%= post.caption %> </p>
       <%= destroy_link post %>
     <ul class="comments">
@@ -9,10 +10,9 @@
       <% end %>
     </ul>  
     <% if user_signed_in? %>
-      <%= form_for [post, Comment.new] do |f| %>
-        <%= f.text_field :body %>
+      <% @post = post %>
+      <%= render "comment_form" %>
     <% end %>
-  <% end %>
 
   <% end %>
 <% else %>

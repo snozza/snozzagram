@@ -1,5 +1,5 @@
-$(document).ready(function() {
-
+var ready;
+ready = function() {
   $('.new_comment').on('submit', function(event) {
     event.preventDefault();
     var comment = $(this).children('#comment_body')
@@ -12,4 +12,7 @@ $(document).ready(function() {
       comment.val('');
     });
   });
-});
+}
+
+$(document).ready(ready);
+$(document).on('page:load',ready);

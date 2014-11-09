@@ -39,6 +39,15 @@ describe 'Posts' do
     end
   end
 
+  context 'viewing posts' do
+
+    it "should be able to view larger image of individual post" do
+      make_post
+      find(:xpath, "//a/img[@alt='Test']/..").click
+      expect(page).to have_content 'Greatest movie?'
+    end
+  end
+
   context 'deleting posts' do
 
     before(:each) do

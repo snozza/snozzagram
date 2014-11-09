@@ -1,0 +1,13 @@
+<%= image_tag @post.image.url(:original) %>
+<h3><%= @post.caption %> </h3>
+  
+  <ul class="comments">
+    <% @post.comments.each do |comment| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ul>
+  
+  <% if user_signed_in? %>
+    <%= render "comment_form" %>
+  <% end %>
+
