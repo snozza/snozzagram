@@ -6,6 +6,8 @@ $(document).ready(function() {
     var action = $(this).attr('action')
     $.post(action, {body: comment.val() }, function(data) {
       $('.comments').append(data.new_comment);
+    }).fail(function() {
+      alert('You need to write something!')
     }).always(function() {
       comment.val('');
     });

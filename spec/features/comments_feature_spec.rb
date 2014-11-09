@@ -10,6 +10,7 @@ describe 'Commenting' do
     fill_in 'comment[body]', with: "This is awesome!"    
     page.execute_script("$('form.new_comment').submit()")
     expect(page).to have_content 'This is awesome!'
+    expect(Comment.count).to eq 1
   end
 
   it 'should not allow comments to be empty', js: true do

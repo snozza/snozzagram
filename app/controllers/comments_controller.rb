@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     puts params
     @comment = @post.comments.new(params.permit(:body))
     if @comment.save
-      puts json: {new_comment: "<li>#{@comment.body}</li>"}
       render json: {new_comment: "<li>#{@comment.body}</li>"}
     else
       render 'new'
