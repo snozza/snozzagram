@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Commenting' do
   
   before do
+    sign_up
     make_post      
   end
 

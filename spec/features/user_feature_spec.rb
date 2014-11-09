@@ -33,4 +33,18 @@ describe 'User' do
       expect(page).to_not have_link('Sign in')
     end
   end
+
+  context "users who aren't signed in" do
+
+    before do
+      sign_up
+      make_post
+      click_link 'Sign out'   
+    end
+
+    it "should not be able to post" do
+      visit '/posts/new'
+      expect(page).to have_content "You need to sign in or sign up before continuing"
+    end
+  end
 end

@@ -4,6 +4,7 @@ describe 'Posts' do
 
   before do
     visit '/'
+    sign_up
   end
   
   context 'no posts have been made' do
