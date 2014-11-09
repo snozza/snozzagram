@@ -50,5 +50,9 @@ describe 'User' do
     it "should not be able to delete a post" do
       expect(page).to_not have_link "Delete"
     end
+
+    it "should not be able to comment on a post" do
+      expect(page).to_not have_selector ".new_comment"
+    end      
   end
 end

@@ -10,10 +10,11 @@
         <li><%= comment.body %></li>
       <% end %>
     </ul>  
-
-    <%= form_for [post, Comment.new] do |f| %>
-      <%= f.text_field :body %>
+    <% if user_signed_in? %>
+      <%= form_for [post, Comment.new] do |f| %>
+        <%= f.text_field :body %>
     <% end %>
+  <% end %>
 
   <% end %>
 <% else %>
