@@ -2,9 +2,7 @@
   <% @posts.each do |post| %>
     <h2> <%= image_tag post.image.url(:thumb) %> </h2>
     <p> <%= post.caption %> </p>
-    <% if user_signed_in? %>
-      <%= link_to 'Delete', post_path(post), method: :delete %>
-    <% end %>
+      <%= destroy_link post %>
     <ul class="comments">
       <% post.comments.each do |comment| %>
         <li><%= comment.body %></li>

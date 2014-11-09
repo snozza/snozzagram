@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
 gem 'paperclip'
-gem 'devise'
 gem 'rspec-collection_matchers', group: :test
 gem 'poltergeist', group: :test
 gem 'database_cleaner', group: :test
 gem 'launchy', group: :test
 gem 'devise'
+gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record

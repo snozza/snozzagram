@@ -37,12 +37,22 @@ describe 'Posts' do
       expect(page).to have_content 'You need to upload a valid image!'
       expect(Post.count).to eq 0
     end
+  end
 
-    it 'should be able to be deleted' do
+  context 'deleting posts' do
+
+    before(:each) do
       make_post
-      click_link 'Delete'
-      expect(page).to_not have_content('Greatest movie?')
-      expect(Post.count).to eq 0
+    end
+
+    it "should only allow owner of post to delete it" do
+      expect{ click_link "Delete"}.to change{Post.count}.by -1
+    end
+
+    it "should not let other user delete another user's post" do
+      click_link 'Sign out'
+      sign_up("wendy@wendy.com", "testtest", "testtest")
+      expect(page).to_not have_link "Delete"
     end
   end
 
