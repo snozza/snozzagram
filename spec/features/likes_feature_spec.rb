@@ -7,10 +7,10 @@ describe 'liking posts' do
     make_post
   end
 
-  it 'updates the like count on same page' do
-    expect(page).to have_content 'likes: 0'
-    click_link 'like'
-    expect(page).to have_content 'likes: 1'
+  it 'updates the like count on same page', js: true do
+    expect(page).to have_content '0 likes'
+    click_link 'Like'
+    expect(page).to have_content '0 likes'
     expect(Like.count).to eq 1
   end
 

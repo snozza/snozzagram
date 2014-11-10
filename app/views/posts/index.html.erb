@@ -3,8 +3,8 @@
   <% @posts.each do |post| %>
     <h2> <%= show_image_link post %> </h2>
     <p> <%= post.caption %> </p>
-    <%= link_to "Like", post_likes_path(post), class: 'like' %>
-    <span class="likes-count"><%= post.likes.count %> </span> likes
+    <p><%= like_link post%>
+    <span class="likes-count"><%= post.likes.count %> </span> likes</p>
       <%= destroy_link post %>
     <ul class="comments">
       <% post.comments.each do |comment| %>

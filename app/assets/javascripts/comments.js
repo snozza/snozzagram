@@ -22,6 +22,8 @@ ready = function() {
       likesCount.text(data.new_like_count);
     });
   });
+
+  Turbolinks.pagesCached(0)
 }
 
 $(document).ready(ready);
